@@ -1426,3 +1426,32 @@ lifestore_searches = [
     [1032, 95],
     [1033, 95]
 ]
+
+if __name__ == "__main__":
+
+#Se definen las variables para usuario y contraseña
+    USUARIO = 'esbeidy'
+    CONTRASENA = 'kiwi'
+#se solicita al usuario ingresar sus credenciales
+    username = input('Ingrese su nombre de usuario:\n > ')
+    password = input('Ingrese la contraseña:\n > ')
+    llave_maestra = False
+    #Se verifican las credenciales del usuario
+    if username == USUARIO:
+        if password == CONTRASENA:
+           #en caso de que sean los valores correctos, se pasa al ingreso del usuario. 
+            print("Buen día! Bienvenido al programa Señor Usuario")
+            llave_maestra=True
+
+        else:
+            print("Contraseña erronea")
+    else:
+        print('El usuario no existe')
+
+    #El usuario ingresa al menu en el cual se le pide el mes al que quiere acceder. 
+    #Se utiliza llave maestra para llevarlo al menu
+    if llave_maestra == True : 
+        print("Ha accedido a los archivos secretos de la compañía")
+        input("¿A qué reporte mensual desea acceder?:     ")
+
+
