@@ -1462,15 +1462,31 @@ if __name__ == "__main__":
             #calculamos las ventas totales (esto se refiere al número de ventas, no la cantidad en cash)
             numero_ventaanual_cadena = str(len(lifestore_sales))
             print("El número de ventas anuales fue de: " + numero_ventaanual_cadena)
-        
+
+
             #Inicializamos la variable lista por numero de productos 
             #lista_numeroventas = [id_producto, veces_ventas_individuales, price]
             lista_numeroventas = []  
+            revenue = 0
             #producto_numerado variable that takes the value of the item inside the sequence on each iteration.
             for producto_numerado in range(0,len(lifestore_products)) : 
+                #Entonces en la lista_numeroventas agregué las variables de idproduct indice [0]
+                #Y agregué las variables de precio indice [2] 
+                #Se usa el contador producto numerado porque así va item por item de la lista
                 lista_numeroventas.append([ lifestore_products[producto_numerado][0], 0, lifestore_products[producto_numerado][2] ])
-            print(lista_numeroventas)
-        
+           
+                #Ahora hacemos un for anidado para agregar el numero de veces que se vendieron los 
+                #productos en el indice [1] de mi lista lista_numeroventas
+                for sale in lifestore_sales : 
+                    if sale[1] == lista_numeroventas[producto_numerado][0] :
+                        if sale[4] == 0 :
+                            lista_numeroventas[producto_numerado][1] = lista_numeroventas[producto_numerado][1] + 1
+                
+                #Esta variable revenue me va a sacar mis ingresos anuales del coppel
+                revenue = revenue + lista_numeroventas[producto_numerado][1] * lista_numeroventas[producto_numerado][2] 
+            #print(lista_numeroventas)
+            print("El ingreso anual del coppel Emtech es: USD $" + str(revenue))
+
         else:
             print("Estamos trabajando para darle un mejor servicio, espere las actualizaciones")
 
