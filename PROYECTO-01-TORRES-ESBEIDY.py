@@ -1453,5 +1453,10 @@ if __name__ == "__main__":
     if llave_maestra == True : 
         print("Ha accedido a los archivos secretos de la compañía")
         input("¿A qué reporte mensual desea acceder?:     ")
-
-
+        
+        #Inicializamos la variable lista por numero de productos 
+        lista_numeroventas = []  
+        for id_producto in range(1,len(lifestore_products)+1) : 
+            lista_numeroventas.append([id_producto,0])
+        #print(lista_numeroventas)
+        
