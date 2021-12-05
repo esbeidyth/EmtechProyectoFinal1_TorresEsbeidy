@@ -1462,15 +1462,16 @@ if __name__ == "__main__":
             #calculamos las ventas totales (esto se refiere al número de ventas, no la cantidad en cash)
             numero_ventaanual_cadena = str(len(lifestore_sales))
             print("El número de ventas anuales fue de: " + numero_ventaanual_cadena)
-
+        
+            #Inicializamos la variable lista por numero de productos 
+            #lista_numeroventas = [id_producto, veces_ventas_individuales, price]
+            lista_numeroventas = []  
+            #producto_numerado variable that takes the value of the item inside the sequence on each iteration.
+            for producto_numerado in range(0,len(lifestore_products)) : 
+                lista_numeroventas.append([ lifestore_products[producto_numerado][0], 0, lifestore_products[producto_numerado][2] ])
+            print(lista_numeroventas)
         
         else:
             print("Estamos trabajando para darle un mejor servicio, espere las actualizaciones")
 
-
-        #Inicializamos la variable lista por numero de productos 
-        #lista_numeroventas = []  
-        #for id_producto in range(1,len(lifestore_products)+1) : 
-            #lista_numeroventas.append([id_producto,0])
-        #print(lista_numeroventas)
         
