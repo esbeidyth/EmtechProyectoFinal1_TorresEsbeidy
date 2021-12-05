@@ -1452,11 +1452,25 @@ if __name__ == "__main__":
     #Se utiliza llave maestra para llevarlo al menu
     if llave_maestra == True : 
         print("Ha accedido a los archivos secretos de la compañía")
-        input("¿A qué reporte mensual desea acceder?:     ")
         
+        #Hacemos que el usuario nos indique a qué tipo de reporte quiere ingresar. 
+        tipo_reporte = input("¿A qué reporte desea acceder? Elija Anual o Mensual:\n > ")
+        tipo_reporte_lower = tipo_reporte.lower()
+        
+        #El usuario elige anual
+        if tipo_reporte_lower == "anual" : 
+            #calculamos las ventas totales (esto se refiere al número de ventas, no la cantidad en cash)
+            numero_ventaanual_cadena = str(len(lifestore_sales))
+            print("El número de ventas anuales fue de: " + numero_ventaanual_cadena)
+
+        
+        else:
+            print("Estamos trabajando para darle un mejor servicio, espere las actualizaciones")
+
+
         #Inicializamos la variable lista por numero de productos 
-        lista_numeroventas = []  
-        for id_producto in range(1,len(lifestore_products)+1) : 
-            lista_numeroventas.append([id_producto,0])
+        #lista_numeroventas = []  
+        #for id_producto in range(1,len(lifestore_products)+1) : 
+            #lista_numeroventas.append([id_producto,0])
         #print(lista_numeroventas)
         
