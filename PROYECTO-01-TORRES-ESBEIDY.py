@@ -5,7 +5,7 @@ lifestore_searches = [id_search, id product]
 lifestore_sales = [id_sale, id_product, score (from 1 to 5), date, refund (1 for true or 0 to false)]
 lifestore_products = [id_product, name, price, category, stock]
 """
-
+#=========================================SECCION LISTAS DE PRODUCTOS=========================================#
 lifestore_products = [
     [1, 'Procesador AMD Ryzen 3 3300X S-AM4, 3.80GHz, Quad-Core, 16MB L2 Cache', 3019, 'procesadores', 16],
     [2, 'Procesador AMD Ryzen 5 3600, S-AM4, 3.60GHz, 32MB L3 Cache, con Disipador Wraith Stealth', 4209, 'procesadores', 182],
@@ -1427,6 +1427,7 @@ lifestore_searches = [
     [1033, 95]
 ]
 
+#==================================================SECCION LOGIN==============================================#
 if __name__ == "__main__":
 
 #Se definen las variables para usuario y contraseña
@@ -1448,15 +1449,17 @@ if __name__ == "__main__":
     else:
         print('El usuario no existe')
 
+#========================================SECCION MENU REPORTES========================================#
     #El usuario ingresa al menu en el cual se le pide el mes al que quiere acceder. 
     #Se utiliza llave maestra para llevarlo al menu
     if llave_maestra == True : 
         print("Ha accedido a los archivos secretos de la compañía")
-        
+               
         #Hacemos que el usuario nos indique a qué tipo de reporte quiere ingresar. 
         tipo_reporte = input("¿A qué reporte desea acceder? Elija Anual o Mensual:\n > ")
         tipo_reporte_lower = tipo_reporte.lower()
-        
+    
+    #=============================================SECCION REPORTE ANUAL======================================#
         #El usuario elige anual
         if tipo_reporte_lower == "anual" : 
             #calculamos las ventas totales (esto se refiere al número de ventas, no la cantidad en cash)
@@ -1467,6 +1470,7 @@ if __name__ == "__main__":
             #Inicializamos la variable lista por numero de productos 
             #lista_numeroventas = [id_producto, veces_ventas_individuales, price]
             lista_numeroventas = []  
+            
             revenue = 0
             #producto_numerado variable that takes the value of the item inside the sequence on each iteration.
             for producto_numerado in range(0,len(lifestore_products)) : 
@@ -1485,7 +1489,51 @@ if __name__ == "__main__":
                 #Esta variable revenue me va a sacar mis ingresos anuales del coppel
                 revenue = revenue + lista_numeroventas[producto_numerado][1] * lista_numeroventas[producto_numerado][2] 
             #print(lista_numeroventas)
-            print("El ingreso anual del coppel Emtech es: USD $" + str(revenue))
+            print("El ingreso anual del Coppel Emtech es: USD $" + str(revenue))
+       
+        #El usuario pide acceso al reporte mensual y se le solicita acceder el año.        
+
+    #========================================SECCION REPORTE MENSUAL========================================#
+        
+        elif tipo_reporte_lower == "mensual" : 
+            #inicializar variable ventas mes (lista)
+            lista_numeroventas_mes = []  
+            for producto_numerado in range(0,len(lifestore_products)) : 
+                #estamos incializando ventas mes con el idproducto y precio de cada producto
+                lista_numeroventas_mes.append([ lifestore_products[producto_numerado][0], 0, lifestore_products[producto_numerado][2] ])
+
+            mes_reporte = input("Por favor, indique el mes al que quiere acceder Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre:\n > ")
+            mes_reporte_lower = mes_reporte.lower()
+
+        #========================================SECCION REPORTE ENERO========================================#
+            #Este es el código para el reporte del mes de enero
+            if mes_reporte_lower == "enero" : 
+
+
+                #Generaremos el reporte de ingresos del mes y ventas del mes
+                #lista_numventas_enero = [id_producto, veces_ventas_individuales, price]
+                #Estamos iniciando la lista de las ventas de enero con la lista maestra de las ventas mes que se hizo arriba :D
+                lista_numventas_enero = lista_numeroventas_mes  
+                revenue_enero = 0
+                valor_acumuladoenero = 0
+
+                #hacemos un for pre anidado para checar las ventas, ver si si se hicieorn en enero y comparar las listas
+                for sale in lifestore_sales :
+                    #hacemos un split para tener el valor del mes 
+                    fecha = sale[3]
+                    separada_fecha = fecha.split("/")
+                    
+                    #Entonces, si el valor del split es igual al 01, este entra como enero
+                    if separada_fecha[1] == "01" :
+                        #Este es el verdadero For anidado donde se comparan las listas y se añade si es en enero
+                        for item in range(0,len(lista_numventas_enero)) : 
+                            if sale[1] == lista_numventas_enero[item][0] : 
+                                lista_numventas_enero[item][1] = lista_numventas_enero[item][1] + 1
+                                revenue_enero = revenue_enero + lista_numventas_enero[item][2]
+                        valor_acumuladoenero = valor_acumuladoenero + 1
+                print("El numero de ventas del mes fue de: " + str(valor_acumuladoenero))
+                print("El total de ingresos del mes de enero fue de: " + str(revenue_enero))
+       
 
         else:
             print("Estamos trabajando para darle un mejor servicio, espere las actualizaciones")
