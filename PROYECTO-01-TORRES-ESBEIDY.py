@@ -324,7 +324,7 @@ lifestore_sales = [
     [216, 54, 5, '11/05/2020', 0],
     [217, 54, 5, '08/05/2020', 0],
     [218, 54, 5, '04/05/2020', 0],
-    [219, 54, 4, '04/05/2002', 0],
+    [219, 54, 4, '04/05/2020', 0],
     [220, 54, 5, '04/05/2020', 0],
     [221, 54, 5, '04/05/2020', 0],
     [222, 54, 4, '30/04/2020', 0],
@@ -1454,7 +1454,7 @@ if __name__ == "__main__":
     #Se utiliza llave maestra para llevarlo al menu
     if llave_maestra == True : 
         print("Ha accedido a los archivos secretos de la compañía")
-               
+
         #Hacemos que el usuario nos indique a qué tipo de reporte quiere ingresar. 
         tipo_reporte = input("¿A qué reporte desea acceder? Elija Anual o Mensual:\n > ")
         tipo_reporte_lower = tipo_reporte.lower()
@@ -1470,7 +1470,7 @@ if __name__ == "__main__":
             #Inicializamos la variable lista por numero de productos 
             #lista_numeroventas = [id_producto, veces_ventas_individuales, price]
             lista_numeroventas = []  
-            
+            lista_masbuscados = []
             revenue = 0
             #producto_numerado variable that takes the value of the item inside the sequence on each iteration.
             for producto_numerado in range(0,len(lifestore_products)) : 
@@ -1478,18 +1478,30 @@ if __name__ == "__main__":
                 #Y agregué las variables de precio indice [2] 
                 #Se usa el contador producto numerado porque así va item por item de la lista
                 lista_numeroventas.append([ lifestore_products[producto_numerado][0], 0, lifestore_products[producto_numerado][2] ])
-           
+                lista_masbuscados.append([lifestore_products[producto_numerado][0], lifestore_products[producto_numerado][1],0])
                 #Ahora hacemos un for anidado para agregar el numero de veces que se vendieron los 
                 #productos en el indice [1] de mi lista lista_numeroventas
                 for sale in lifestore_sales : 
                     if sale[1] == lista_numeroventas[producto_numerado][0] :
                         if sale[4] == 0 :
                             lista_numeroventas[producto_numerado][1] = lista_numeroventas[producto_numerado][1] + 1
-                
+                for search in lifestore_searches :
+                    if search[1] == lista_masbuscados[producto_numerado][0] :
+                        lista_masbuscados[producto_numerado][2] = lista_masbuscados[producto_numerado][2] + 1
+                lista_masbuscados_ordenada = sorted(lista_masbuscados, key = lambda x:x[2], reverse=True)
                 #Esta variable revenue me va a sacar mis ingresos anuales del coppel
                 revenue = revenue + lista_numeroventas[producto_numerado][1] * lista_numeroventas[producto_numerado][2] 
             #print(lista_numeroventas)
             print("El ingreso anual del Coppel Emtech es: USD $" + str(revenue))
+            
+            print("Los productos más buscados fueron los siguientes:\n")
+            lista_lossuperbuscados = lista_masbuscados_ordenada[0:9]
+            for superbuscado in range(0,len(lista_lossuperbuscados)) :
+                index = superbuscado
+                print(lista_lossuperbuscados [index][1])
+
+            #Calculamos los productos más buscados
+            
        
         #El usuario pide acceso al reporte mensual y se le solicita acceder el año.        
 
@@ -1533,9 +1545,13 @@ if __name__ == "__main__":
                         valor_acumuladoenero = valor_acumuladoenero + 1
                 print("El numero de ventas del mes fue de: " + str(valor_acumuladoenero))
                 print("El total de ingresos del mes de enero fue de: " + str(revenue_enero))
+
+
        
+            else:
+                print("Estamos trabajando para darle un mejor servicio, espere las actualizaciones")
 
         else:
-            print("Estamos trabajando para darle un mejor servicio, espere las actualizaciones")
+            print("Se ha equivocado, inicie el programa de nuevo :D")
 
         
