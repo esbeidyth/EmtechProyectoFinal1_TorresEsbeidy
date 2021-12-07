@@ -1512,7 +1512,7 @@ if __name__ == "__main__":
             lista_numeroventas_mes = []  
             for producto_numerado in range(0,len(lifestore_products)) : 
                 #estamos incializando ventas mes con el idproducto y precio de cada producto
-                lista_numeroventas_mes.append([ lifestore_products[producto_numerado][0], 0, lifestore_products[producto_numerado][2] ])
+                lista_numeroventas_mes.append([ lifestore_products[producto_numerado][0], 0, lifestore_products[producto_numerado][2],lifestore_products[producto_numerado][1] ])
 
             mes_reporte = input("Por favor, indique el mes al que quiere acceder Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre:\n > ")
             mes_reporte_lower = mes_reporte.lower()
@@ -1523,7 +1523,7 @@ if __name__ == "__main__":
 
 
                 #Generaremos el reporte de ingresos del mes y ventas del mes
-                #lista_numventas_enero = [id_producto, veces_ventas_individuales, price]
+                #lista_numventas_enero = [id_producto, veces_ventas_individuales, price,nombre]
                 #Estamos iniciando la lista de las ventas de enero con la lista maestra de las ventas mes que se hizo arriba :D
                 lista_numventas_enero = lista_numeroventas_mes  
                 revenue_enero = 0
@@ -1543,8 +1543,18 @@ if __name__ == "__main__":
                                 lista_numventas_enero[item][1] = lista_numventas_enero[item][1] + 1
                                 revenue_enero = revenue_enero + lista_numventas_enero[item][2]
                         valor_acumuladoenero = valor_acumuladoenero + 1
+                lista_numventas_enero_sorted = sorted(lista_numventas_enero, key = lambda x:x[1], reverse=True)
                 print("El numero de ventas del mes fue de: " + str(valor_acumuladoenero))
                 print("El total de ingresos del mes de enero fue de: " + str(revenue_enero))
+                
+                lista_enero_masvendidos = lista_numventas_enero_sorted[0:5]
+                
+                print("Los productos más buscados fueron los siguientes:\n")
+
+                for supervendido in range(0,len(lista_enero_masvendidos)) :
+                    index = supervendido
+                    print(lista_enero_masvendidos[index][3])
+
 
 
        
