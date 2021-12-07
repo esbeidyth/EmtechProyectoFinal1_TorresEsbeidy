@@ -1776,13 +1776,13 @@ if __name__ == "__main__":
                     separada_fecha = fecha.split("/")
                     
                     #Entonces, si el valor del split es igual al 01, este entra como enero
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "05" :
                         #Este es el verdadero For anidado donde se comparan las listas y se añade si es en enero
                         for item in range(0,len(lista_numventas_mayo)) : 
                             if sale[1] == lista_numventas_mayo[item][0] : 
                                 lista_numventas_mayo[item][1] = lista_numventas_mayo[item][1] + 1
                                 revenue_mayo = revenue_mayo + lista_numventas_mayo[item][2]
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "05" :
                         for item1 in range(0,len(lista_scores_mayo)) : 
                             if sale[1] == lista_scores_mayo[item1][0] :
                                 lista_scores_mayo[item1][2] = lista_scores_mayo[item1][2] + 1
@@ -1836,13 +1836,13 @@ if __name__ == "__main__":
                     separada_fecha = fecha.split("/")
                     
                     #Entonces, si el valor del split es igual al 01, este entra como enero
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "06" :
                         #Este es el verdadero For anidado donde se comparan las listas y se añade si es en enero
                         for item in range(0,len(lista_numventas_junio)) : 
                             if sale[1] == lista_numventas_junio[item][0] : 
                                 lista_numventas_junio[item][1] = lista_numventas_junio[item][1] + 1
                                 revenue_junio = revenue_junio + lista_numventas_junio[item][2]
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "06" :
                         for item1 in range(0,len(lista_scores_junio)) : 
                             if sale[1] == lista_scores_junio[item1][0] :
                                 lista_scores_junio[item1][2] = lista_scores_junio[item1][2] + 1
@@ -1895,13 +1895,13 @@ if __name__ == "__main__":
                     separada_fecha = fecha.split("/")
                     
                     #Entonces, si el valor del split es igual al 01, este entra como enero
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "07" :
                         #Este es el verdadero For anidado donde se comparan las listas y se añade si es en enero
                         for item in range(0,len(lista_numventas_julio)) : 
                             if sale[1] == lista_numventas_julio[item][0] : 
                                 lista_numventas_julio[item][1] = lista_numventas_julio[item][1] + 1
                                 revenue_julio = revenue_julio + lista_numventas_julio[item][2]
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "07" :
                         for item1 in range(0,len(lista_scores_julio)) : 
                             if sale[1] == lista_scores_julio[item1][0] :
                                 lista_scores_julio[item1][2] = lista_scores_julio[item1][2] + 1
@@ -1955,13 +1955,13 @@ if __name__ == "__main__":
                     separada_fecha = fecha.split("/")
                     
                     #Entonces, si el valor del split es igual al 01, este entra como enero
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "08" :
                         #Este es el verdadero For anidado donde se comparan las listas y se añade si es en enero
                         for item in range(0,len(lista_numventas_agosto)) : 
                             if sale[1] == lista_numventas_agosto[item][0] : 
                                 lista_numventas_agosto[item][1] = lista_numventas_agosto[item][1] + 1
                                 revenue_agosto = revenue_agosto + lista_numventas_agosto[item][2]
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "08" :
                         for item1 in range(0,len(lista_scores_agosto)) : 
                             if sale[1] == lista_scores_agosto[item1][0] :
                                 lista_scores_agosto[item1][2] = lista_scores_agosto[item1][2] + 1
@@ -2014,13 +2014,13 @@ if __name__ == "__main__":
                     separada_fecha = fecha.split("/")
                     
                     #Entonces, si el valor del split es igual al 01, este entra como enero
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "09" :
                         #Este es el verdadero For anidado donde se comparan las listas y se añade si es en enero
                         for item in range(0,len(lista_numventas_septiembre)) : 
                             if sale[1] == lista_numventas_septiembre[item][0] : 
                                 lista_numventas_septiembre[item][1] = lista_numventas_septiembre[item][1] + 1
                                 revenue_septiembre = revenue_septiembre + lista_numventas_septiembre[item][2]
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "09" :
                         for item1 in range(0,len(lista_scores_septiembre)) : 
                             if sale[1] == lista_scores_septiembre[item1][0] :
                                 lista_scores_septiembre[item1][2] = lista_scores_septiembre[item1][2] + 1
@@ -2073,13 +2073,13 @@ if __name__ == "__main__":
                     separada_fecha = fecha.split("/")
                     
                     #Entonces, si el valor del split es igual al 01, este entra como enero
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "10" :
                         #Este es el verdadero For anidado donde se comparan las listas y se añade si es en enero
                         for item in range(0,len(lista_numventas_octubre)) : 
                             if sale[1] == lista_numventas_octubre[item][0] : 
                                 lista_numventas_octubre[item][1] = lista_numventas_octubre[item][1] + 1
                                 revenue_octubre = revenue_octubre + lista_numventas_octubre[item][2]
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "10" :
                         for item1 in range(0,len(lista_scores_octubre)) : 
                             if sale[1] == lista_scores_octubre[item1][0] :
                                 lista_scores_octubre[item1][2] = lista_scores_octubre[item1][2] + 1
@@ -2132,13 +2132,13 @@ if __name__ == "__main__":
                     separada_fecha = fecha.split("/")
                     
                     #Entonces, si el valor del split es igual al 01, este entra como enero
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "11" :
                         #Este es el verdadero For anidado donde se comparan las listas y se añade si es en enero
                         for item in range(0,len(lista_numventas_noviembre)) : 
                             if sale[1] == lista_numventas_noviembre[item][0] : 
                                 lista_numventas_noviembre[item][1] = lista_numventas_noviembre[item][1] + 1
                                 revenue_noviembre = revenue_noviembre + lista_numventas_noviembre[item][2]
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "11" :
                         for item1 in range(0,len(lista_scores_noviembre)) : 
                             if sale[1] == lista_scores_noviembre[item1][0] :
                                 lista_scores_noviembre[item1][2] = lista_scores_noviembre[item1][2] + 1
@@ -2191,13 +2191,13 @@ if __name__ == "__main__":
                     separada_fecha = fecha.split("/")
                     
                     #Entonces, si el valor del split es igual al 01, este entra como enero
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "12" :
                         #Este es el verdadero For anidado donde se comparan las listas y se añade si es en enero
                         for item in range(0,len(lista_numventas_diciembre)) : 
                             if sale[1] == lista_numventas_diciembre[item][0] : 
                                 lista_numventas_diciembre[item][1] = lista_numventas_diciembre[item][1] + 1
                                 revenue_diciembre = revenue_diciembre + lista_numventas_diciembre[item][2]
-                    if separada_fecha[1] == "04" :
+                    if separada_fecha[1] == "12" :
                         for item1 in range(0,len(lista_scores_diciembre)) : 
                             if sale[1] == lista_scores_diciembre[item1][0] :
                                 lista_scores_diciembre[item1][2] = lista_scores_diciembre[item1][2] + 1
