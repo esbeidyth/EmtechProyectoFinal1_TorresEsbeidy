@@ -1477,7 +1477,7 @@ if __name__ == "__main__":
                 #Entonces en la lista_numeroventas agregué las variables de idproduct indice [0]
                 #Y agregué las variables de precio indice [2] 
                 #Se usa el contador producto numerado porque así va item por item de la lista
-                lista_numeroventas.append([ lifestore_products[producto_numerado][0], 0, lifestore_products[producto_numerado][2] ])
+                lista_numeroventas.append([ lifestore_products[producto_numerado][0], 0, lifestore_products[producto_numerado][2], ])
                 lista_masbuscados.append([lifestore_products[producto_numerado][0], lifestore_products[producto_numerado][1],0])
                 #Ahora hacemos un for anidado para agregar el numero de veces que se vendieron los 
                 #productos en el indice [1] de mi lista lista_numeroventas
@@ -1509,10 +1509,13 @@ if __name__ == "__main__":
         
         elif tipo_reporte_lower == "mensual" : 
             #inicializar variable ventas mes (lista)
-            lista_numeroventas_mes = []  
+            lista_numeroventas_mes = [] 
+            lista_scores_mes = [] 
             for producto_numerado in range(0,len(lifestore_products)) : 
                 #estamos incializando ventas mes con el idproducto y precio de cada producto
+                #lista_scores_mes = [id_product, name, vecesventas, sumascore, promedio score]
                 lista_numeroventas_mes.append([ lifestore_products[producto_numerado][0], 0, lifestore_products[producto_numerado][2],lifestore_products[producto_numerado][1] ])
+                lista_scores_mes.append([ lifestore_products[producto_numerado][0],lifestore_products[producto_numerado][1],0,0,0 ])
 
             mes_reporte = input("Por favor, indique el mes al que quiere acceder Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre:\n > ")
             mes_reporte_lower = mes_reporte.lower()
@@ -1526,8 +1529,10 @@ if __name__ == "__main__":
                 #lista_numventas_enero = [id_producto, veces_ventas_individuales, price,nombre]
                 #Estamos iniciando la lista de las ventas de enero con la lista maestra de las ventas mes que se hizo arriba :D
                 lista_numventas_enero = lista_numeroventas_mes  
+                lista_scores_enero = lista_scores_mes
                 revenue_enero = 0
                 valor_acumuladoenero = 0
+                score_enero = 0
 
                 #hacemos un for pre anidado para checar las ventas, ver si si se hicieorn en enero y comparar las listas
                 for sale in lifestore_sales :
@@ -1542,22 +1547,102 @@ if __name__ == "__main__":
                             if sale[1] == lista_numventas_enero[item][0] : 
                                 lista_numventas_enero[item][1] = lista_numventas_enero[item][1] + 1
                                 revenue_enero = revenue_enero + lista_numventas_enero[item][2]
+                    if separada_fecha[1] == "01" :
+                        for item1 in range(0,len(lista_scores_enero)) : 
+                            if sale[1] == lista_scores_enero[item1][0] :
+                                lista_scores_enero[item1][2] = lista_scores_enero[item1][2] + 1
+                                lista_scores_enero[item1][3] = (sale[2]) + lista_scores_enero[item1][3]
+                                if lista_scores_enero[item1][3] > 1 : 
+                                    lista_scores_enero[item1][4] = lista_scores_enero[item1][3] / lista_scores_enero[item1][2]
+                        
                         valor_acumuladoenero = valor_acumuladoenero + 1
+                       
+                
+
+                #estoy generando una lista ordenada de las ventas de enero
                 lista_numventas_enero_sorted = sorted(lista_numventas_enero, key = lambda x:x[1], reverse=True)
+                lista_scores_enero_sorted = sorted(lista_scores_enero, key=lambda x:x[4], reverse=True)
                 print("El numero de ventas del mes fue de: " + str(valor_acumuladoenero))
                 print("El total de ingresos del mes de enero fue de: " + str(revenue_enero))
-                
+                #estoy generando la lista solo con los 5 más vendidos de enero
                 lista_enero_masvendidos = lista_numventas_enero_sorted[0:5]
+                lista_enero_mejoresrankings = lista_scores_enero_sorted[0:5]
                 
                 print("Los productos más buscados fueron los siguientes:\n")
-
+                #estoy poniendo únicamente los nombres de los más vendidos
                 for supervendido in range(0,len(lista_enero_masvendidos)) :
                     index = supervendido
                     print(lista_enero_masvendidos[index][3])
 
+                #estoy poniendo unicamente los nombres de los mejores scores
+                print("Los mejores scores fueron:\n")
+                for superrankeado in range(0,len(lista_enero_mejoresrankings)) :
+                    index1 = superrankeado
+                    print(lista_enero_mejoresrankings[index1][1])
+
+        #========================================SECCION REPORTE FEBRERO========================================#
+            #Este es el código para el reporte del mes de enero
+            elif mes_reporte_lower == "febrero" : 
 
 
-       
+                #Generaremos el reporte de ingresos del mes y ventas del mes
+                #lista_numventas_febrero = [id_producto, veces_ventas_individuales, price,nombre]
+                #Estamos iniciando la lista de las ventas de febrero con la lista maestra de las ventas mes que se hizo arriba :D
+                lista_numventas_febrero = lista_numeroventas_mes  
+                lista_scores_febrero = lista_scores_mes
+                revenue_febrero = 0
+                valor_acumuladofebrero = 0
+                score_febrero = 0
+
+                #hacemos un for pre anidado para checar las ventas, ver si si se hicieorn en enero y comparar las listas
+                for sale in lifestore_sales :
+                    #hacemos un split para tener el valor del mes 
+                    fecha = sale[3]
+                    separada_fecha = fecha.split("/")
+                    
+                    #Entonces, si el valor del split es igual al 01, este entra como enero
+                    if separada_fecha[1] == "01" :
+                        #Este es el verdadero For anidado donde se comparan las listas y se añade si es en enero
+                        for item in range(0,len(lista_numventas_febrero)) : 
+                            if sale[1] == lista_numventas_febrero[item][0] : 
+                                lista_numventas_febrero[item][1] = lista_numventas_febrero[item][1] + 1
+                                revenue_febrero = revenue_febrero + lista_numventas_febrero[item][2]
+                    if separada_fecha[1] == "01" :
+                        for item1 in range(0,len(lista_scores_febrero)) : 
+                            if sale[1] == lista_scores_febrero[item1][0] :
+                                lista_scores_febrero[item1][2] = lista_scores_febrero[item1][2] + 1
+                                lista_scores_febrero[item1][3] = (sale[2]) + lista_scores_febrero[item1][3]
+                                if lista_scores_febrero[item1][3] > 1 : 
+                                    lista_scores_febrero[item1][4] = lista_scores_febrero[item1][3] / lista_scores_febrero[item1][2]
+                        
+                        valor_acumuladofebrero = valor_acumuladofebrero + 1
+                       
+                
+
+                #estoy generando una lista ordenada de las ventas de enero
+                lista_numventas_febrero_sorted = sorted(lista_numventas_febrero, key = lambda x:x[1], reverse=True)
+                lista_scores_febrero_sorted = sorted(lista_scores_febrero, key=lambda x:x[4], reverse=True)
+                print("El numero de ventas del mes fue de: " + str(valor_acumuladofebrero))
+                print("El total de ingresos del mes de enero fue de: " + str(revenue_febrero))
+                #estoy generando la lista solo con los 5 más vendidos de enero
+                lista_febrero_masvendidos = lista_numventas_febrero_sorted[0:5]
+                lista_febrero_mejoresrankings = lista_scores_febrero_sorted[0:5]
+                
+                print("Los productos más buscados fueron los siguientes:\n")
+                #estoy poniendo únicamente los nombres de los más vendidos
+                for supervendido in range(0,len(lista_febrero_masvendidos)) :
+                    index = supervendido
+                    print(lista_febrero_masvendidos[index][3])
+
+                #estoy poniendo unicamente los nombres de los mejores scores
+                print("Los mejores scores fueron:\n")
+                for superrankeado in range(0,len(lista_febrero_mejoresrankings)) :
+                    index1 = superrankeado
+                    print(lista_febrero_mejoresrankings[index1][1])
+
+
+
+
             else:
                 print("Estamos trabajando para darle un mejor servicio, espere las actualizaciones")
 
