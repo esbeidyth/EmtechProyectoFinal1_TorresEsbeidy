@@ -1640,11 +1640,68 @@ if __name__ == "__main__":
                     index1 = superrankeado
                     print(lista_febrero_mejoresrankings[index1][1])
 
+        #========================================SECCION REPORTE MARZO========================================#
+            #Este es el código para el reporte del mes de enero
+            elif mes_reporte_lower == "marzo" : 
 
 
+                #Generaremos el reporte de ingresos del mes y ventas del mes
+                #lista_numventas_marzo = [id_producto, veces_ventas_individuales, price,nombre]
+                #Estamos iniciando la lista de las ventas de febrero con la lista maestra de las ventas mes que se hizo arriba :D
+                lista_numventas_marzo = lista_numeroventas_mes  
+                lista_scores_marzo = lista_scores_mes
+                revenue_marzo = 0
+                valor_acumuladomarzo = 0
+                score_febrero = 0
 
-            else:
-                print("Estamos trabajando para darle un mejor servicio, espere las actualizaciones")
+                #hacemos un for pre anidado para checar las ventas, ver si si se hicieorn en enero y comparar las listas
+                for sale in lifestore_sales :
+                    #hacemos un split para tener el valor del mes 
+                    fecha = sale[3]
+                    separada_fecha = fecha.split("/")
+                    
+                    #Entonces, si el valor del split es igual al 01, este entra como enero
+                    if separada_fecha[1] == "01" :
+                        #Este es el verdadero For anidado donde se comparan las listas y se añade si es en enero
+                        for item in range(0,len(lista_numventas_marzo)) : 
+                            if sale[1] == lista_numventas_marzo[item][0] : 
+                                lista_numventas_marzo[item][1] = lista_numventas_marzo[item][1] + 1
+                                revenue_marzo = revenue_marzo + lista_numventas_marzo[item][2]
+                    if separada_fecha[1] == "01" :
+                        for item1 in range(0,len(lista_scores_marzo)) : 
+                            if sale[1] == lista_scores_marzo[item1][0] :
+                                lista_scores_marzo[item1][2] = lista_scores_marzo[item1][2] + 1
+                                lista_scores_marzo[item1][3] = (sale[2]) + lista_scores_marzo[item1][3]
+                                if lista_scores_marzo[item1][3] > 1 : 
+                                    lista_scores_marzo[item1][4] = lista_scores_marzo[item1][3] / lista_scores_marzo[item1][2]
+                        
+                        valor_acumuladomarzo = valor_acumuladomarzo + 1
+                       
+                
+
+                #estoy generando una lista ordenada de las ventas de enero
+                lista_numventas_marzo_sorted = sorted(lista_numventas_marzo, key = lambda x:x[1], reverse=True)
+                lista_scores_marzo_sorted = sorted(lista_scores_marzo, key=lambda x:x[4], reverse=True)
+                print("El numero de ventas del mes fue de: " + str(valor_acumuladomarzo))
+                print("El total de ingresos del mes de enero fue de: " + str(revenue_marzo))
+                #estoy generando la lista solo con los 5 más vendidos de enero
+                lista_marzo_masvendidos = lista_numventas_marzo_sorted[0:5]
+                lista_marzo_mejoresrankings = lista_scores_marzo_sorted[0:5]
+                
+                print("Los productos más buscados fueron los siguientes:\n")
+                #estoy poniendo únicamente los nombres de los más vendidos
+                for supervendido in range(0,len(lista_marzo_masvendidos)) :
+                    index = supervendido
+                    print(lista_marzo_masvendidos[index][3])
+
+                #estoy poniendo unicamente los nombres de los mejores scores
+                print("Los mejores scores fueron:\n")
+                for superrankeado in range(0,len(lista_marzo_mejoresrankings)) :
+                    index1 = superrankeado
+                    print(lista_marzo_mejoresrankings[index1][1])
+
+
+           
 
         else:
             print("Se ha equivocado, inicie el programa de nuevo :D")
