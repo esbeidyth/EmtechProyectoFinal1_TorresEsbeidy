@@ -1567,7 +1567,7 @@ if __name__ == "__main__":
                 lista_enero_masvendidos = lista_numventas_enero_sorted[0:5]
                 lista_enero_mejoresrankings = lista_scores_enero_sorted[0:5]
                 
-                print("Los productos más buscados fueron los siguientes:\n")
+                print("Los productos más vendidos fueron los siguientes:\n")
                 #estoy poniendo únicamente los nombres de los más vendidos
                 for supervendido in range(0,len(lista_enero_masvendidos)) :
                     index = supervendido
@@ -1626,7 +1626,7 @@ if __name__ == "__main__":
                 lista_febrero_masvendidos = lista_numventas_febrero_sorted[0:5]
                 lista_febrero_mejoresrankings = lista_scores_febrero_sorted[0:5]
                 
-                print("Los productos más buscados fueron los siguientes:\n")
+                print("Los productos más vendidos fueron los siguientes:\n")
                 #estoy poniendo únicamente los nombres de los más vendidos
                 for supervendido in range(0,len(lista_febrero_masvendidos)) :
                     index = supervendido
@@ -1685,7 +1685,7 @@ if __name__ == "__main__":
                 lista_marzo_masvendidos = lista_numventas_marzo_sorted[0:5]
                 lista_marzo_mejoresrankings = lista_scores_marzo_sorted[0:5]
                 
-                print("Los productos más buscados fueron los siguientes:\n")
+                print("Los productos más vendidos fueron los siguientes:\n")
                 #estoy poniendo únicamente los nombres de los más vendidos
                 for supervendido in range(0,len(lista_marzo_masvendidos)) :
                     index = supervendido
@@ -1744,7 +1744,7 @@ if __name__ == "__main__":
                 lista_abril_masvendidos = lista_numventas_abril_sorted[0:5]
                 lista_abril_mejoresrankings = lista_scores_abril_sorted[0:5]
                 
-                print("Los productos más buscados fueron los siguientes:\n")
+                print("Los productos más vendidos fueron los siguientes:\n")
                 #estoy poniendo únicamente los nombres de los más vendidos
                 for supervendido in range(0,len(lista_abril_masvendidos)) :
                     index = supervendido
@@ -1803,7 +1803,7 @@ if __name__ == "__main__":
                 lista_mayo_masvendidos = lista_numventas_mayo_sorted[0:5]
                 lista_mayo_mejoresrankings = lista_scores_mayo_sorted[0:5]
                 
-                print("Los productos más buscados fueron los siguientes:\n")
+                print("Los productos más vendidos fueron los siguientes:\n")
                 #estoy poniendo únicamente los nombres de los más vendidos
                 for supervendido in range(0,len(lista_mayo_masvendidos)) :
                     index = supervendido
@@ -1863,7 +1863,7 @@ if __name__ == "__main__":
                 lista_junio_masvendidos = lista_numventas_junio_sorted[0:5]
                 lista_junio_mejoresrankings = lista_scores_junio_sorted[0:5]
                 
-                print("Los productos más buscados fueron los siguientes:\n")
+                print("Los productos más vendidos fueron los siguientes:\n")
                 #estoy poniendo únicamente los nombres de los más vendidos
                 for supervendido in range(0,len(lista_junio_masvendidos)) :
                     index = supervendido
@@ -1922,7 +1922,7 @@ if __name__ == "__main__":
                 lista_julio_masvendidos = lista_numventas_julio_sorted[0:5]
                 lista_julio_mejoresrankings = lista_scores_julio_sorted[0:5]
                 
-                print("Los productos más buscados fueron los siguientes:\n")
+                print("Los productos más vendidos fueron los siguientes:\n")
                 #estoy poniendo únicamente los nombres de los más vendidos
                 for supervendido in range(0,len(lista_julio_masvendidos)) :
                     index = supervendido
@@ -1982,7 +1982,7 @@ if __name__ == "__main__":
                 lista_agosto_masvendidos = lista_numventas_agosto_sorted[0:5]
                 lista_agosto_mejoresrankings = lista_scores_agosto_sorted[0:5]
                 
-                print("Los productos más buscados fueron los siguientes:\n")
+                print("Los productos más vendidos fueron los siguientes:\n")
                 #estoy poniendo únicamente los nombres de los más vendidos
                 for supervendido in range(0,len(lista_agosto_masvendidos)) :
                     index = supervendido
@@ -2041,7 +2041,7 @@ if __name__ == "__main__":
                 lista_septiembre_masvendidos = lista_numventas_septiembre_sorted[0:5]
                 lista_septiembre_mejoresrankings = lista_scores_septiembre_sorted[0:5]
                 
-                print("Los productos más buscados fueron los siguientes:\n")
+                print("Los productos más vendidos fueron los siguientes:\n")
                 #estoy poniendo únicamente los nombres de los más vendidos
                 for supervendido in range(0,len(lista_septiembre_masvendidos)) :
                     index = supervendido
@@ -2100,7 +2100,7 @@ if __name__ == "__main__":
                 lista_octubre_masvendidos = lista_numventas_octubre_sorted[0:5]
                 lista_octubre_mejoresrankings = lista_scores_octubre_sorted[0:5]
                 
-                print("Los productos más buscados fueron los siguientes:\n")
+                print("Los productos más vendidos fueron los siguientes:\n")
                 #estoy poniendo únicamente los nombres de los más vendidos
                 for supervendido in range(0,len(lista_octubre_masvendidos)) :
                     index = supervendido
@@ -2159,7 +2159,7 @@ if __name__ == "__main__":
                 lista_noviembre_masvendidos = lista_numventas_noviembre_sorted[0:5]
                 lista_noviembre_mejoresrankings = lista_scores_noviembre_sorted[0:5]
                 
-                print("Los productos más buscados fueron los siguientes:\n")
+                print("Los productos más vendidos fueron los siguientes:\n")
                 #estoy poniendo únicamente los nombres de los más vendidos
                 for supervendido in range(0,len(lista_noviembre_masvendidos)) :
                     index = supervendido
@@ -2218,7 +2218,7 @@ if __name__ == "__main__":
                 lista_diciembre_masvendidos = lista_numventas_diciembre_sorted[0:5]
                 lista_diciembre_mejoresrankings = lista_scores_diciembre_sorted[0:5]
                 
-                print("Los productos más buscados fueron los siguientes:\n")
+                print("Los productos más vendidos fueron los siguientes:\n")
                 #estoy poniendo únicamente los nombres de los más vendidos
                 for supervendido in range(0,len(lista_diciembre_masvendidos)) :
                     index = supervendido
