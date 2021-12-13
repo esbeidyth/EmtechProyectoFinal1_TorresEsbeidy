@@ -1505,7 +1505,7 @@ if __name__ == "__main__":
        
         #El usuario pide acceso al reporte mensual y se le solicita acceder el año.        
 
-    #========================================SECCION REPORTE MENSUAL========================================#
+    #========================================ACCESO REPORTE MENSUAL========================================#
         
         elif tipo_reporte_lower == "mensual" : 
             #inicializar variable ventas mes (lista)
@@ -1520,8 +1520,9 @@ if __name__ == "__main__":
             mes_reporte = input("Por favor, indique el mes al que quiere acceder Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre:\n > ")
             mes_reporte_lower = mes_reporte.lower()
 
-        #========================================SECCION REPORTE ENERO========================================#
+        #========================================SECCION REPORTE MENSUAL========================================#
             #Este es el código para el reporte del mes de enero
+            
             if mes_reporte_lower == "enero" : 
                 mes_numero = "01"
             elif mes_reporte_lower == "febrero" :
@@ -1546,14 +1547,20 @@ if __name__ == "__main__":
                 mes_numero = "11"
             elif mes_reporte_lower == "diciembre" :
                 mes_numero = "12"
+            else : 
+                mes_numero = 0
+                print("El mes que ingresó no existe")
             
+            if mes_numero != 0 :
+
+
                 #Generaremos el reporte de ingresos del mes y ventas del mes
                 #lista_numventas_enero = [id_producto, veces_ventas_individuales, price,nombre]
                 #Estamos iniciando la lista de las ventas de enero con la lista maestra de las ventas mes que se hizo arriba :D
-                lista_numventas_enero = lista_numeroventas_mes  
-                lista_scores_enero = lista_scores_mes
-                revenue_enero = 0
-                valor_acumuladoenero = 0
+                lista_numventas_solicitado = lista_numeroventas_mes  
+                lista_scores_solicitado = lista_scores_mes
+                revenue_solicitado = 0
+                valor_acumuladosolicitado = 0
 
                 #hacemos un for pre anidado para checar las ventas, ver si si se hicieorn en enero y comparar las listas
                 for sale in lifestore_sales :
@@ -1564,48 +1571,47 @@ if __name__ == "__main__":
                     #Entonces, si el valor del split es igual al 01, este entra como enero
                     if separada_fecha[1] == mes_numero :
                         #Este es el verdadero For anidado donde se comparan las listas y se añade si es en enero
-                        for item in range(0,len(lista_numventas_enero)) : 
-                            if sale[1] == lista_numventas_enero[item][0] : 
-                                lista_numventas_enero[item][1] = lista_numventas_enero[item][1] + 1
-                                revenue_enero = revenue_enero + lista_numventas_enero[item][2]
+                        for item in range(0,len(lista_numventas_solicitado)) : 
+                            if sale[1] == lista_numventas_solicitado[item][0] : 
+                                lista_numventas_solicitado[item][1] = lista_numventas_solicitado[item][1] + 1
+                                revenue_solicitado = revenue_solicitado + lista_numventas_solicitado[item][2]
                     if separada_fecha[1] == mes_numero :
-                        for item1 in range(0,len(lista_scores_enero)) : 
-                            if sale[1] == lista_scores_enero[item1][0] :
-                                lista_scores_enero[item1][2] = lista_scores_enero[item1][2] + 1
-                                lista_scores_enero[item1][3] = (sale[2]) + lista_scores_enero[item1][3]
-                                if lista_scores_enero[item1][3] > 1 : 
-                                    lista_scores_enero[item1][4] = lista_scores_enero[item1][3] / lista_scores_enero[item1][2]
+                        for item1 in range(0,len(lista_scores_solicitado)) : 
+                            if sale[1] == lista_scores_solicitado[item1][0] :
+                                lista_scores_solicitado[item1][2] = lista_scores_solicitado[item1][2] + 1
+                                lista_scores_solicitado[item1][3] = (sale[2]) + lista_scores_solicitado[item1][3]
+                                if lista_scores_solicitado[item1][3] > 1 : 
+                                    lista_scores_solicitado[item1][4] = lista_scores_solicitado[item1][3] / lista_scores_solicitado[item1][2]
                         
-                        valor_acumuladoenero = valor_acumuladoenero + 1
-                       
+                        valor_acumuladosolicitado = valor_acumuladosolicitado + 1
+                        
                 
 
                 #estoy generando una lista ordenada de las ventas de enero
-                lista_numventas_enero_sorted = sorted(lista_numventas_enero, key = lambda x:x[1], reverse=True)
-                lista_scores_enero_sorted = sorted(lista_scores_enero, key=lambda x:x[4], reverse=True)
-                print("El numero de ventas del mes fue de: " + str(valor_acumuladoenero))
-                print("El total de ingresos del mes de enero fue de: " + str(revenue_enero))
-                #estoy generando la lista solo con los 5 más vendidos de enero
-                lista_enero_masvendidos = lista_numventas_enero_sorted[0:5]
-                lista_enero_mejoresrankings = lista_scores_enero_sorted[0:5]
+                lista_numventas_mes_sorted = sorted(lista_numventas_solicitado, key = lambda x:x[1], reverse=True)
+                lista_scores_mes_sorted = sorted(lista_scores_solicitado, key=lambda x:x[4], reverse=True)
                 
-                print("Los productos más vendidos fueron los siguientes:\n")
-                #estoy poniendo únicamente los nombres de los más vendidos
-                for supervendido in range(0,len(lista_enero_masvendidos)) :
-                    index = supervendido
-                    print(lista_enero_masvendidos[index][3])
+                print("El numero de ventas del mes " + mes_numero + " fue de: " + str(valor_acumuladosolicitado))
+                print("El total de ingresos del mes " + mes_numero + " fue de: " + str(revenue_solicitado))
+                
+                #estoy generando la lista solo con los 5 más vendidos de enero
+                
+                if valor_acumuladosolicitado > 0 :
+                    lista_masvendidos_mes = lista_numventas_mes_sorted[0:5]
+                    lista_mejoresrankings_mes = lista_scores_mes_sorted[0:5]
+                    
+                    print("\nLos productos más vendidos fueron los siguientes:\n")
+                    #estoy poniendo únicamente los nombres de los más vendidos
+                    for supervendido in range(0,len(lista_masvendidos_mes)) :
+                        index = supervendido
+                        print(lista_masvendidos_mes[index][3])
 
-                #estoy poniendo unicamente los nombres de los mejores scores
-                print("Los mejores scores fueron:\n")
-                for superrankeado in range(0,len(lista_enero_mejoresrankings)) :
-                    index1 = superrankeado
-                    print(lista_enero_mejoresrankings[index1][1])
-            else : 
-                print("Cometiste un error, reinicie el programa")
-       
-
-
-        else:
-            print("Se ha equivocado, inicie el programa de nuevo :D")
-
-        
+                    #estoy poniendo unicamente los nombres de los mejores scores
+                    print("\nLos mejores scores fueron:\n")
+                    for superrankeado in range(0,len(lista_mejoresrankings_mes)) :
+                        index1 = superrankeado
+                        print(lista_mejoresrankings_mes[index1][1])
+                else :
+                    print("Fin del reporte")
+        else : 
+            print("No es posible procesar su solicitud, intente nuevamente")
